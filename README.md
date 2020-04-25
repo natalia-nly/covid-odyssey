@@ -1,5 +1,6 @@
 # Covid Odyssey
 
+![](https://media.giphy.com/media/Ymzmd5c2In6HUGjkTB/giphy.gif)
 
 ## Descripción
 Te toca hacer la compra semanal. Llegar a casa en tiempos de cuarentena se puede convertir en toda una odisea... Por el camino tienes que esquivar el virus y recoger rollos de papel de váter.
@@ -22,3 +23,12 @@ Te toca hacer la compra semanal. Llegar a casa en tiempos de cuarentena se puede
 
 ## Backlog
 - [ ] Niveles
+- [ ] Añadir efectos de sonido 
+- [ ] Añadir animaciones
+
+
+## Links 
+### Kanban
+https://trello.com/b/fNz5J5VB
+
+### Slides
