@@ -9,7 +9,7 @@ Te toca hacer la compra semanal. Llegar a casa en tiempos de cuarentena se puede
 - 💖 Empiezas el juego con 3 vidas
 - 🦠 Tienes que esquivar los virus. Si caes en uno te resta una vida.
 - 🧻 Coger todos los rollos de papel de váter que puedas. Cada 3 rollos tienes una vida más.
-- 👏 Extra bonus: consigue un aplauso y gana 1 vida
+- 🌡️ Extra bonus: comprueba que no tienes fiebre y gana 1 vida
 - 🏠 Conseguir llegar a casa
 
 ## MVP - User stories

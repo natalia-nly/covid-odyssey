@@ -4,8 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Covid Odyssey</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="start-game">
+        <div class="card-start">
+            <img src="/assets/covid.svg" alt="Covid Odyssey" class="img-intro">
+            <h1>Covid<br>Odyssey</h1>
+            <button id="start-game-button">Start game</button>
+        </div>
+    </div>
+
+    <div id="end-game" class="game-board-start">
+        <div class="card-start">
+            <img src="/assets/covid.svg" alt="Covid Odyssey" class="img-intro">
+            <h1>Looser</h1>
+        </div>
+    </div>
+
+    <div id="game-board" class="game-board-start">
+        <div class="info-game">
+            <div class="info-life info">
+                <img src="/assets/heart.svg" alt="lives" value="lives">
+                <p id="number-lifes"></p>
+            </div>
+            <div class="info-paper info">
+                <img src="/assets/paper.svg" alt="Paper" value="paper">
+                <p id="number-paper"></p>
+            </div>
+        </div>
+        <canvas id="canvas" width="800" height="400"></canvas>
+    </div>
+
+    <script src="src/canvas.js"></script>
+    <script src="src/index.js"></script>
 </body>
 </html>
