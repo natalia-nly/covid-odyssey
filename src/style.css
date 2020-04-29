@@ -77,9 +77,6 @@ h1 {
     width: 60px;
 }
 
-.game-board-start {
-    display: none;
-}
 
 .game-board {
     min-height: 100vh;

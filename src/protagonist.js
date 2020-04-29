@@ -28,6 +28,7 @@ class Protagonist {
   
       return collision;
     }
+    
   
     right(){
       if (this.limits(this.y, this.x +1) === "nothing"){
@@ -53,10 +54,7 @@ class Protagonist {
   
         } if(this.lives == 0) {
         
-          setTimeout(function(){
-            document.getElementById('end-game').classList.remove('game-board-start');
-            document.getElementById('end-game').classList.add('end-game');
-          }, 1000);
+          setTimeout(gameOverScreen, 500);
         }
       }
   
@@ -85,11 +83,7 @@ class Protagonist {
           --this.lives;
   
         } if(this.lives == 0) {
-        
-          setTimeout(function(){
-            document.getElementById('end-game').classList.remove('game-board-start');
-            document.getElementById('end-game').classList.add('end-game');
-          }, 1000);
+          setTimeout(gameOverScreen, 500);
         }
       }
     }
@@ -117,11 +111,7 @@ class Protagonist {
           --this.lives;
   
         } if(this.lives == 0) {
-        
-          setTimeout(function(){
-            document.getElementById('end-game').classList.remove('game-board-start');
-            document.getElementById('end-game').classList.add('end-game');
-          }, 1000);
+          setTimeout(gameOverScreen, 500);
         }
       }
     }
@@ -149,11 +139,7 @@ class Protagonist {
           --this.lives;
   
         } if(this.lives == 0) {
-        
-          setTimeout(function(){
-            document.getElementById('end-game').classList.remove('game-board-start');
-            document.getElementById('end-game').classList.add('end-game');
-          }, 1000);
+          setTimeout(gameOverScreen, 500);
         }
       }
     }
