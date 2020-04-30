@@ -5,6 +5,9 @@ class Protagonist {
       this.y = y;
       this.speedX = widthBox;
       this.speedY = heightBox;
+      this.gravity = 0.5;
+      this.friction = 0;
+      this.speed = 0;
       this.lives = 3;
       this.paper = 0;
       this.infoLives = document.getElementById('number-lifes');
@@ -12,11 +15,13 @@ class Protagonist {
     }
   
     draw(){
-      ctx.drawImage(playerImg, this.x*widthBox, this.y*heightBox, widthBox, heightBox);
+      ctx.drawImage(playerImg, this.x, this.y, widthBox, heightBox);
     }
   
-    limits(newY, newX){
+    limits(y, x){
       let collision = 'nothing';
+      let newY = parseInt(y/heightBox);
+      let newX = parseInt(x/widthBox);
   
       if (scenario[newY][newX] == 1){
         collision = 'platform';
@@ -24,19 +29,22 @@ class Protagonist {
         collision = 'paper';
       } else if (scenario[newY][newX] == 3) {
         collision = 'virus';
+      } else if (scenario[newY][newX] == 4) {
+        collision = 'home';
       }
   
       return collision;
     }
-    
+ 
   
     right(){
-      if (this.limits(this.y, this.x +1) === "nothing"){
-        ++this.x;
+      let collisionRight = this.limits(this.y, this.x + this.speedX);
+      if (collisionRight === "nothing"){
+        this.x += this.speedX;
       } 
       //paper
-      else if (this.limits(this.y, this.x +1) === "paper"){
-        ++this.x;
+      else if (collisionRight === "paper"){
+        this.x += this.speedX;
         if(this.paper < 2){
           ++this.paper;
         } else if(this.paper === 2){
@@ -44,11 +52,11 @@ class Protagonist {
           ++this.lives;
         }
   
-        scenario[this.y][this.x] = 0;
+        scenario[parseInt(this.y/heightBox)][parseInt(this.x/widthBox)] = 0;
       }
       //virus
-      else if (this.limits(this.y, this.x +1) === "virus"){
-        ++this.x;
+      else if (collisionRight === "virus"){
+        this.x += this.speedX;
         if(this.lives > 0){
           --this.lives;
   
@@ -57,16 +65,21 @@ class Protagonist {
           setTimeout(gameOverScreen, 500);
         }
       }
+      //home
+      else if (collisionRight === "home"){
+        setTimeout(winScreen, 500);
+      }
   
     }
   
     left(){
-      if (this.limits(this.y, this.x -1) === "nothing"){
-        --this.x;
+      let collisionLeft = this.limits(this.y, this.x - this.speedX);
+      if (collisionLeft === "nothing"){
+        this.x -= this.speedX;
       } 
       //paper
-      else if (this.limits(this.y, this.x -1) === "paper"){
-        --this.x;
+      else if (collisionLeft === "paper"){
+        this.x -= this.speedX;
         if(this.paper < 2){
           ++this.paper;
         } else if(this.paper === 2){
@@ -74,27 +87,32 @@ class Protagonist {
           ++this.lives;
         }
   
-        scenario[this.y][this.x] = 0;
+        scenario[parseInt(this.y/heightBox)][parseInt(this.x/widthBox)] = 0;
       }
       //virus
-      else if (this.limits(this.y, this.x -1) === "virus"){
-        --this.x;
+      else if (collisionLeft === "virus"){
+        this.x -= this.speedX;
         if(this.lives > 0){
           --this.lives;
   
         } if(this.lives == 0) {
           setTimeout(gameOverScreen, 500);
         }
+      }
+      //home
+      else if (collisionLeft === "home"){
+        setTimeout(winScreen, 500);
       }
     }
   
     up(){
-      if (this.limits(this.y -1, this.x) === "nothing"){
-        --this.y;
+      let collisionUp = this.limits(this.y - this.speedY, this.x);
+      if (collisionUp === "nothing"){
+        this.y -= this.speedY;
       } 
       //paper
-      else if (this.limits(this.y -1, this.x) === "paper"){
-        --this.y;
+      else if (collisionUp === "paper"){
+        this.y -= this.speedY;
         if(this.paper < 2){
           ++this.paper;
         } else if(this.paper === 2){
@@ -102,27 +120,32 @@ class Protagonist {
           ++this.lives;
         }
   
-        scenario[this.y][this.x] = 0;
+        scenario[parseInt(this.y/heightBox)][parseInt(this.x/widthBox)] = 0;
       }
       //virus
-      else if (this.limits(this.y -1, this.x) === "virus"){
-        --this.y;
+      else if (collisionUp === "virus"){
+        this.y -= this.speedY;
         if(this.lives > 0){
           --this.lives;
   
         } if(this.lives == 0) {
           setTimeout(gameOverScreen, 500);
         }
+      }
+      //home
+      else if (collisionUp === "home"){
+        setTimeout(winScreen, 500);
       }
     }
   
     down(){
-      if (this.limits(this.y +1, this.x) === "nothing"){
-        ++this.y; 
+      let collisionDown = this.limits(this.y + this.speedY, this.x);
+      if (collisionDown === "nothing"){
+        this.y += this.speedY; 
       } 
       //paper
-      else if (this.limits(this.y +1, this.x) === "paper"){
-        ++this.y; 
+      else if (collisionDown === "paper"){
+        this.y += this.speedY; 
         if(this.paper < 2){
           ++this.paper;
         } else if(this.paper === 2){
@@ -130,17 +153,21 @@ class Protagonist {
           ++this.lives;
         }
   
-        scenario[this.y][this.x] = 0;
+        scenario[parseInt(this.y/heightBox)][parseInt(this.x/widthBox)] = 0;
       }
       //virus
-      else if (this.limits(this.y +1, this.x) === "virus"){
-        ++this.y; 
+      else if (collisionDown === "virus"){
+        this.y += this.speedY; 
         if(this.lives > 0){
           --this.lives;
   
         } if(this.lives == 0) {
           setTimeout(gameOverScreen, 500);
         }
+      }
+      //home
+      else if (collisionDown === "home"){
+        setTimeout(winScreen, 500);
       }
     }
   }

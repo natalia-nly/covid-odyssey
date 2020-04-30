@@ -10,7 +10,7 @@ class Home {
   }
   
 
-  let widthBox = 25;
+let widthBox = 25;
 let heightBox = 25;
 
 let transparent = "rgba(255, 255, 255, 0)";

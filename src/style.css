@@ -56,7 +56,7 @@ h1 {
     font-weight: 600;
 }
 
-#start-game-button{
+.start-game-button{
     background-color: #36d39a;
     color: white;
     border: none;
@@ -69,7 +69,7 @@ h1 {
     transition: all .5s ease;
 }
 
-#start-game-button:hover{
+.start-game-button:hover{
     background-color: #00c67f;
 }
 

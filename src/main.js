@@ -4,11 +4,11 @@ let FPS = 24;
 let home;
 let protagonist;
 
- //IMAGES
- let homeImg;
- let virusImg;
- let paperImg;
- let playerImg;
+//IMAGES
+let homeImg;
+let virusImg;
+let paperImg;
+let playerImg;
 
 
 //CHANGE HTML CONTENT
@@ -24,7 +24,7 @@ const startScreen = () => {
             <div class="card-start">
                 <img src="/assets/covid.svg" alt="Covid Odyssey" class="img-intro">
                 <h1>Covid<br>Odyssey</h1>
-                <button id="start-game-button">Start game</button>
+                <button id="start-game-button" class="start-game-button">Start game</button>
             </div>
         </div>
         `);
@@ -80,7 +80,7 @@ function createCanvas() {
 
     //CREATE OBJECTS
     home = new Home(canvas.width - 100, canvas.height - 76);
-    protagonist = new Protagonist(0, 15);
+    protagonist = new Protagonist(0, 375);
 }
 
 //UPDATE CANVAS
