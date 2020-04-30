@@ -126,22 +126,33 @@ window.onload = () => {
         setInterval(startGame, 1000/FPS);
     };
   
-    document.onkeydown = event => {
-        switch(event.code){
-            case "ArrowRight":
-                protagonist.right();
-                break;
-            case "ArrowLeft":
-                protagonist.left();
-                break;
-            case "ArrowUp":
-                protagonist.up();
-                break;
-            case "ArrowDown":
-                protagonist.down();
-                break;
-        }
+    // document.onkeydown = event => {
+    //     switch(event.code){
+    //         case "ArrowRight":
+    //             protagonist.right();
+    //             break;
+    //         case "ArrowLeft":
+    //             protagonist.left();
+    //             break;
+    //         case "ArrowUp":
+    //             protagonist.up();
+    //             break;
+    //         case "ArrowDown":
+    //             protagonist.down();
+    //             break;
+    //     }
        
+    // };
+
+    document.onkeydown = event => {
+        if (
+            event.code === "ArrowRight" || 
+            event.code === "ArrowLeft" || 
+            event.code === "ArrowUp" || 
+            event.code === "ArrowDown"
+            ){
+                protagonist.move(event.code);
+        }
     };
   
    
