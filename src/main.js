@@ -49,14 +49,19 @@ const gameBoardScreen = () => {
         </div>
         `);
 
+    createCanvas();
+    loadImages();
+    setInterval(startGame, 1000/FPS);
+
 };
 
 const winScreen = () => {
     buildDom(`
         <div id="end-game" class="end-game">
             <div class="card-start">
-                <img src="/assets/covid.svg" alt="Covid Odyssey" class="img-intro">
+                <img src="/assets/player.svg" alt="Covid Odyssey" class="img-intro">
                 <h1>You win!!</h1>
+                <button onclick="gameBoardScreen();" class="start-game-button">Play again</button>
             </div>
         </div>
         `);
@@ -121,28 +126,8 @@ window.onload = () => {
     startScreen();
     document.getElementById('start-game-button').onclick = () => {
         gameBoardScreen();
-        createCanvas();
-        loadImages();
-        setInterval(startGame, 1000/FPS);
     };
   
-    // document.onkeydown = event => {
-    //     switch(event.code){
-    //         case "ArrowRight":
-    //             protagonist.right();
-    //             break;
-    //         case "ArrowLeft":
-    //             protagonist.left();
-    //             break;
-    //         case "ArrowUp":
-    //             protagonist.up();
-    //             break;
-    //         case "ArrowDown":
-    //             protagonist.down();
-    //             break;
-    //     }
-       
-    // };
 
     document.onkeydown = event => {
         if (

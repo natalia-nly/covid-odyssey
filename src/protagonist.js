@@ -7,17 +7,21 @@ class Protagonist {
       this.speedY = heightBox;
       this.gravity = 0.5;
       this.friction = 0;
-      this.speed = 0;
+      this.jump = 10;
+      this.speed = 3;
+      this.ground = false;
       this.lives = 3;
       this.paper = 0;
       this.infoLives = document.getElementById('number-lifes');
       this.infoPaper = document.getElementById('number-paper');
     }
   
+
     draw(){
       ctx.drawImage(playerImg, this.x, this.y, widthBox, heightBox);
     }
-  
+
+    
     limits(y, x){
       let collision = 'nothing';
       let newY = parseInt(y/heightBox);
