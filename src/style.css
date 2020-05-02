@@ -16,17 +16,16 @@ body {
 .start-game {
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(#9a69e2, #7713d8);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(#aeefd6, #a263e0, #45058e);
 }
 
 .end-game {
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(#9a69e2, #7713d8);
     position:absolute;
     top: 0;
     z-index: 3;
@@ -34,17 +33,20 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-image: url('../assets/GameOverBackground.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .card-start {
     padding: 50px;
     border-radius: 50px;
-    box-shadow: 0px 0px 29px 0px rgba(63,63,63,0.14);
+    /* box-shadow: 0px 0px 29px 0px rgba(63,63,63,0.14); */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: white;
+    /* background: white; */
     min-width: 25vw;
 }
 
@@ -74,7 +76,8 @@ h1 {
 }
 
 .img-intro {
-    width: 60px;
+    width: 350px;
+    padding-bottom: 50px;
 }
 
 
@@ -92,12 +95,17 @@ h1 {
     flex-direction: row;
     width: 800px;
     justify-content: space-between;
+    align-items: center;
     padding-bottom: 20px;
 }
 
-.info-game img {
+.info img {
     width: 30px;
     padding: 0 5px;
+}
+
+.logo-board {
+    width: 200px;
 }
 
 .info{
@@ -106,6 +114,7 @@ h1 {
     border-radius: 50px;
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 #number-lifes {
@@ -122,4 +131,60 @@ h1 {
     font-weight: 600;
     font-size: 22px;
     margin: 0;
+}
+
+
+.button-instructions {
+    background-color: transparent;
+    color: #36d39a;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all .5s ease;
+}
+
+.button-instructions:hover {
+    border-bottom: 2px solid #36d39a;
+}
+
+.close {
+    border: none;
+    cursor: pointer;
+    float: right;
+    background: transparent;
+}
+
+.close img {
+    width: 40px;
+}
+
+#col-instructions {
+    display: flex;
+}
+
+#col-instructions div {
+    width: 50%;
+}
+
+#instructions-card {
+    width: 80vw;
+    height: 70vh;
+    overflow: scroll;
+}
+
+.logo-instructions{
+    width: 200px;
+}
+
+.game-over{
+    width: 400px;
+    padding-bottom: 50px;
+}
+
+
+.obj-group img {
+    width: 50px;
+    padding-right: 30px;
 }

@@ -1,6 +1,6 @@
 let canvas;
 let ctx;
-let FPS = 24;
+let FPS = 60;
 let home;
 let protagonist;
 
@@ -22,9 +22,9 @@ const startScreen = () => {
     buildDom(`
         <div class="start-game">
             <div class="card-start">
-                <img src="/assets/covid.svg" alt="Covid Odyssey" class="img-intro">
-                <h1>Covid<br>Odyssey</h1>
-                <button id="start-game-button" class="start-game-button">Start game</button>
+            <img src="/assets/CovidOdyssey1.png" alt="Covid Odyssey" class="img-intro">
+                <button onclick="gameBoardScreen();" class="start-game-button">Start game</button>
+                <button onclick="instructions();" class="button-instructions">Need help?</button>
             </div>
         </div>
         `);
@@ -39,6 +39,9 @@ const gameBoardScreen = () => {
                 <div class="info-life info">
                     <img src="/assets/heart.svg" alt="lives" value="lives">
                     <p id="number-lifes"></p>
+                </div>
+                <div>
+                <img src="/assets/CovidOdyssey1.png" alt="Covid Odyssey" class="logo-board">
                 </div>
                 <div class="info-paper info">
                     <img src="/assets/paper.svg" alt="Paper" value="paper">
@@ -71,10 +74,36 @@ const gameOverScreen = () => {
     buildDom(`
         <div id="end-game" class="end-game">
             <div class="card-start">
-                <img src="/assets/covid.svg" alt="Covid Odyssey" class="img-intro">
-                <h1>Game Over</h1>
+            <img src="/assets/GameOver.png" alt="Covid Odyssey" class="game-over">
+            <button onclick="gameBoardScreen();" class="start-game-button">Play again</button>
             </div>
         </div>
+        `);
+};
+
+const instructions = () => {
+    buildDom(`
+    <div class="start-game">
+        <div id="instructions-card">
+            <button onclick="startScreen()" class="close"><img src="/assets/close.svg" alt="Close Button"></button>
+            <img src="/assets/CovidOdyssey.png" alt="Covid Odyssey" class="logo-instructions">
+            <div id="col-instructions">
+                <div class="obj-group">
+                    <img src="/assets/covid.svg" alt="Covid Odyssey" class="logo-instructions">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>
+                    <img src="/assets/paper.svg" alt="Covid Odyssey" class="logo-instructions">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>
+            
+                </div>
+                <div class="obj-group">
+                    <img src="/assets/home.png" alt="Covid Odyssey" class="logo-instructions">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>
+                    
+                </div>
+            </div>
+            <button id="start-game-button" class="start-game-button">Start game</button>            
+        </div>
+    </div>
         `);
 };
 
@@ -124,10 +153,6 @@ function startGame(){
 
 window.onload = () => {
     startScreen();
-    document.getElementById('start-game-button').onclick = () => {
-        gameBoardScreen();
-    };
-  
 
     document.onkeydown = event => {
         if (
@@ -137,6 +162,18 @@ window.onload = () => {
             event.code === "ArrowDown"
             ){
                 protagonist.move(event.code);
+        }
+    };
+
+    document.onkeyup = event => {
+        
+        switch(event.code) {
+            case "ArrowRight":
+                protagonist.right = false;
+                break;
+            case "ArrowLeft":
+                protagonist.left = false;
+                break;
         }
     };
   
