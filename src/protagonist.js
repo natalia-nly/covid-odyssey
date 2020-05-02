@@ -9,6 +9,7 @@ class Protagonist {
       this.friction = 0.3;
       this.jump = 12;
       this.speed = 3;
+      this.maxSpeed = 2;
       this.ground = true;
       this.lives = 3;
       this.paper = 0;
@@ -34,10 +35,21 @@ class Protagonist {
           break;
       }
     }
+
+    collision(x,y){
+      let collision = false;
+
+      if(scenario[parseInt(y/heightBox)][parseInt(x/widthBox)] == 1){
+        collision = true;
+      }
+
+      return collision;
+    }
+
   
     physics(){
       let self = this;
-      //falling
+      //gravity
       if(self.ground == false){
         self.speedY += self.gravity;
       } else {
@@ -45,30 +57,85 @@ class Protagonist {
         self.speedY = 0;
       }
 
+      //ground collision
+      if(self.speedY > 0){
+        if(self.collision(self.x + 1, self.y + heightBox) == true || self.collision(self.x + widthBox -1, self.y + heightBox) == true){
+          self.ground = true;
+          self.speedY = 0;
+          self.correctPosition("down");
+        } else {
+          self.ground = false;
+        }
+      }
+
+      //top collision
+      if(self.speedY < 0){
+        if(self.collision(self.x + 1, self.y) == true || self.collision(self.x + widthBox -1, self.y) == true){
+          self.speedY = 0;
+          self.correctPosition("up");
+        }
+      }
+
+      //right collision
+      if(self.speedX > 0) {
+        if(
+          self.collision(self.x + widthBox + self.speedX, self.y + 1) || 
+          self.collision(self.x + widthBox + self.speedX, self.y + heightBox -1)){
+            if(self.x != parseInt(self.x/widthBox) * widthBox){
+              self.correctPosition("right");
+              self.right = false;
+            }
+            self.right = false;
+            self.speedX = 0;
+            
+        }
+      }
+
+      //left collision
+      if(self.speedX < 0) {
+        if(
+          self.collision(self.x + self.speedX, self.y + 1) || 
+          self.collision(self.x + self.speedX, self.y + heightBox - 1)){
+            if(self.x != parseInt(self.x/widthBox) * widthBox){
+              self.correctPosition("left");
+              self.left = false;
+            }
+            self.left = false;
+            self.speedX = 0;
+            
+        }
+      }
+
       //right
-      if (self.right == true){
-        self.speedX = self.speed;
+      if (self.right == true && 
+        self.speedX <= self.maxSpeed){
+        self.speedX += self.speed;
+        
       }
 
       if(self.speedX > 0){
         self.speedX -= self.friction;
+        self.ground = false;
 
         if(self.speedX < 0) {
           self.speedX = 0;
+          self.ground = false;
         }
       }
 
       //left 
-      if(self.left == true) {
-        self.speedX = -self.speed;
+      if(self.left == true && self.speedX >= 0-self.maxSpeed) {
+        self.speedX -= self.speed;
         
       }
 
       if(self.speedX < 0) {
         self.speedX += self.friction;
+        self.ground = false;
 
         if(self.speedX > 0) {
           self.speedX = 0;
+          self.ground = false;
         }
       }
 
@@ -78,9 +145,31 @@ class Protagonist {
 
     }
 
+    moveUp() {
+      if(this.ground == true){
+        this.speedY -= this.jump;
+        this.ground = false;
+      }
+    }
+
+    moveRight() {
+      this.right = true;
+    }
+
+    moveLeft() {
+      this.left = true;
+    }
+
+    stopRight(){
+      this.right = false;
+    }
+
+    stopLeft(){
+      this.left = false;
+    }
+
     draw(){
       this.physics();
-      this.checkPlatform();
       ctx.drawImage(playerImg, this.x, this.y, widthBox, heightBox);
 
       if (this.y >= canvas.height - 25){
@@ -137,15 +226,6 @@ class Protagonist {
 
     }
 
-    checkPlatform(){
-      let collision = this.limits(this.y, this.x);
-      
-      //platform
-      if (collision === "platform"){
-        this.ground = true;
-      }
-    }
-
     checkCollision(){
       let collisionRight = this.limits(this.y, this.x);
       let collisionLeft = this.limits(this.y, this.x);
@@ -154,15 +234,6 @@ class Protagonist {
 
       this.ground = false;
       
-      //platform
-      // if (
-      //   collisionRight === "platform" || 
-      //   collisionLeft === "platform" || 
-      //   collisionUp === "platform" || 
-      //   collisionDown === "platform"){
-      //   this.ground = true;
-      // }
-      //paper
       if (
         collisionRight === "paper" || 
         collisionLeft === "paper" || 

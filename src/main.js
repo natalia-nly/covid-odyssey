@@ -22,7 +22,7 @@ const startScreen = () => {
     buildDom(`
         <div class="start-game">
             <div class="card-start">
-            <img src="/assets/CovidOdyssey1.png" alt="Covid Odyssey" class="img-intro">
+            <img src="/assets/Covid-Odyssey.png" alt="Covid Odyssey" class="img-intro">
                 <button onclick="gameBoardScreen();" class="start-game-button">Start game</button>
                 <button onclick="instructions();" class="button-instructions">Need help?</button>
             </div>
@@ -41,7 +41,7 @@ const gameBoardScreen = () => {
                     <p id="number-lifes"></p>
                 </div>
                 <div>
-                <img src="/assets/CovidOdyssey1.png" alt="Covid Odyssey" class="logo-board">
+                <img src="/assets/Covid-Odyssey.png" alt="Covid Odyssey" class="logo-board">
                 </div>
                 <div class="info-paper info">
                     <img src="/assets/paper.svg" alt="Paper" value="paper">
@@ -86,7 +86,7 @@ const instructions = () => {
     <div class="start-game">
         <div id="instructions-card">
             <button onclick="startScreen()" class="close"><img src="/assets/close.svg" alt="Close Button"></button>
-            <img src="/assets/CovidOdyssey.png" alt="Covid Odyssey" class="logo-instructions">
+            <img src="/assets/Covid-Odyssey.png" alt="Covid Odyssey" class="logo-instructions">
             <div id="col-instructions">
                 <div class="obj-group">
                     <img src="/assets/covid.svg" alt="Covid Odyssey" class="logo-instructions">
@@ -114,7 +114,7 @@ function createCanvas() {
 
     //CREATE OBJECTS
     home = new Home(canvas.width - 100, canvas.height - 76);
-    protagonist = new Protagonist(0, 375);
+    protagonist = new Protagonist(0, 350);
 }
 
 //UPDATE CANVAS
@@ -155,13 +155,16 @@ window.onload = () => {
     startScreen();
 
     document.onkeydown = event => {
-        if (
-            event.code === "ArrowRight" || 
-            event.code === "ArrowLeft" || 
-            event.code === "ArrowUp" || 
-            event.code === "ArrowDown"
-            ){
-                protagonist.move(event.code);
+        switch(event.code) {
+            case "ArrowRight":
+                protagonist.moveRight();
+                break;
+            case "ArrowLeft":
+                protagonist.moveLeft();
+                break;
+            case "ArrowUp":
+                protagonist.moveUp();
+                break;
         }
     };
 
@@ -169,10 +172,10 @@ window.onload = () => {
         
         switch(event.code) {
             case "ArrowRight":
-                protagonist.right = false;
+                protagonist.stopRight();
                 break;
             case "ArrowLeft":
-                protagonist.left = false;
+                protagonist.stopLeft();
                 break;
         }
     };
