@@ -1,8 +1,9 @@
 canvas {
-    background-image: url('../assets/background.png');
+    background-image: url(../assets/background.png);
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0px 0px 29px 0px rgba(63,63,63,0.14);
+    border-radius: 25px;
+    box-shadow: 0px 0px 39px 0px rgba(69, 5, 142, 0.2);
 }
 
 * {
@@ -83,7 +84,7 @@ h1 {
 
 .game-board {
     min-height: 100vh;
-    background-color: white;
+    background: linear-gradient(#aeefd6, #a263e0, #45058e);
     display: flex;
     flex-direction: column;
     align-items: center;

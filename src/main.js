@@ -113,7 +113,7 @@ function createCanvas() {
 
 
     //CREATE OBJECTS
-    home = new Home(canvas.width - 100, canvas.height - 76);
+    home = new Home(canvas.width - 100, canvas.height - 100);
     protagonist = new Protagonist(0, 350);
 }
 

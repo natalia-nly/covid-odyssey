@@ -15,6 +15,7 @@ class Protagonist {
       this.paper = 0;
       this.right = false;
       this.left = false;
+      this.virusActive = true;
       this.infoLives = document.getElementById('number-lifes');
       this.infoPaper = document.getElementById('number-paper');
     }
@@ -143,6 +144,34 @@ class Protagonist {
       self.y += self.speedY;
       self.x += self.speedX;
 
+
+      //collision paper
+      if(scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] == 2){
+        if(self.paper < 2){
+          ++self.paper;
+        } else if(self.paper === 2){
+          self.paper = 0;
+          ++self.lives;
+        }
+  
+        scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] = 0;
+      }
+
+      //collision home
+      if(scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] == 4){
+        setTimeout(winScreen, 500);
+      }
+
+      //collision virus  
+      if(scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] == 3 && self.virusActive == true){
+        if(self.lives > 0){
+          --self.lives;
+        } 
+        else if(self.lives == 0) {
+          setTimeout(gameOverScreen, 500);
+        }
+      }
+
     }
 
     moveUp() {
@@ -178,99 +207,5 @@ class Protagonist {
 
     }
 
-    
-    limits(y, x){
-      let collision = 'nothing';
-      let newY = parseInt(y/heightBox);
-      let newX = parseInt(x/widthBox);
-      let self = this;
-  
-      if (scenario[newY][newX] == 1){
-        collision = 'platform';
-        self.ground = true;
-      } else if (scenario[newY][newX] == 2) {
-        collision = 'paper';
-        self.ground = false;
-      } else if (scenario[newY][newX] == 3) {
-        collision = 'virus';
-        self.ground = false;
-      } else if (scenario[newY][newX] == 4) {
-        collision = 'home';
-        self.ground = false;
-      }
-  
-      return collision;
-    }
- 
-    move(direction){
-      let self = this;
-
-      if(direction === "ArrowRight") {
-        self.right = true;
-        self.checkCollision();
-      } else if (direction === "ArrowLeft") {
-        self.left = true;
-        self.checkCollision();
-      } else if (direction === "ArrowUp") {
-        if(self.ground == true){
-          self.speedY -= self.jump;
-          self.ground = false;
-        }
-        self.checkCollision();
-      } else if (direction === "ArrowDown") {
-        if(self.ground == false){
-          self.y += 25;
-          self.checkCollision();
-        }
-      }
-
-    }
-
-    checkCollision(){
-      let collisionRight = this.limits(this.y, this.x);
-      let collisionLeft = this.limits(this.y, this.x);
-      let collisionUp = this.limits(this.y, this.x);
-      let collisionDown = this.limits(this.y, this.x);
-
-      this.ground = false;
-      
-      if (
-        collisionRight === "paper" || 
-        collisionLeft === "paper" || 
-        collisionUp === "paper" || 
-        collisionDown === "paper"){
-        if(this.paper < 2){
-          ++this.paper;
-        } else if(this.paper === 2){
-          this.paper = 0;
-          ++this.lives;
-        }
-  
-        scenario[parseInt(this.y/heightBox)][parseInt(this.x/widthBox)] = 0;
-      }
-      //virus
-      else if (
-        collisionRight === "virus" || 
-        collisionLeft === "virus" || 
-        collisionUp === "virus" || 
-        collisionDown === "virus"
-        ){
-        if(this.lives > 0){
-          --this.lives;
-        } 
-        else if(this.lives == 0) {
-          setTimeout(gameOverScreen, 500);
-        }
-      }
-      //home
-      else if (
-        collisionRight === "home" || 
-        collisionLeft === "home" || 
-        collisionUp === "home" || 
-        collisionDown === "home"
-      ){
-        setTimeout(winScreen, 500);
-      }
-    }
   }
   
