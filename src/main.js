@@ -64,11 +64,12 @@ const gameBoardScreen = () => {
 
 const winScreen = () => {
     buildDom(`
-        <div id="end-game" class="end-game">
+        <div class="start-game">
             <div class="card-start">
-                <img src="assets/player.svg" alt="Covid Odyssey" class="img-intro">
-                <h1>You win!!</h1>
-                <button onclick="window.location.reload();" class="start-game-button">Play again</button>
+                <img src="assets/player.svg" alt="Covid Odyssey" class="img-win">
+                <img src="assets/YouWin.png" alt="Covid Odyssey" class="game-over">
+
+                <button href="index.html" class="start-game-button">Play again</button>
             </div>
         </div>
         `);
@@ -79,7 +80,7 @@ const gameOverScreen = () => {
         <div id="end-game" class="end-game">
             <div class="card-start">
             <img src="assets/GameOver.png" alt="Covid Odyssey" class="game-over">
-            <button onclick="refreshPage();" class="start-game-button">Play again</button>
+            <button href="index.html" class="start-game-button">Play again</button>
             </div>
         </div>
         `);
@@ -92,28 +93,28 @@ const instructions = () => {
             <button onclick="startScreen()" class="close"><img src="assets/close.svg" alt="Close Button"></button>
             <div class="intro-instructions">
                 <img src="assets/Covid-Odyssey.png" alt="Covid Odyssey" class="logo-instructions">
-                <p>😷😷Te toca hacer la compra semanal. Llegar a casa en tiempos de cuarentena se puede convertir en toda una odisea... Por el camino tienes que esquivar el virus y recoger rollos de papel de váter.</p> 
+                <p>😷😷<br>You have to go to the supermarket. During covid quarantine it can be an odyssey... In your way home you should avoid virus and collect as much WC paper as you can.</p> 
             </div>
             <div id="col-instructions">
                 <div class="obj-group">
                     <div class="obj-desc">
                         <img src="assets/covid.svg" alt="Covid Odyssey" class="logo-instructions">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>
+                        <p>💖You start the game with 3 lives. A virus will remove one life! 🦠</p>
                     </div>
                     <div class="obj-desc">
                         <img src="assets/paper.svg" alt="Covid Odyssey" class="logo-instructions">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>    
+                        <p>🧻 Try to collect them! Every 3 WC papers, you will have an extra life.</p>    
                     </div>
                     
                 </div>
                 <div class="obj-group">
                     <div class="obj-desc">
                         <img src="assets/home.svg" alt="Covid Odyssey" class="logo-instructions">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>    
+                        <p>🏠That's your goal. You have to arrive home to win!</p>    
                     </div>
                     <div class="obj-desc">
                         <img src="assets/termometro.svg" alt="Covid Odyssey" class="logo-instructions">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>
+                        <p>🌡️ Extra bonus: since you have no fever you win an extra life!</p>
                     </div>
                 </div>
             </div>

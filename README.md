@@ -14,11 +14,11 @@ Te toca hacer la compra semanal. Llegar a casa en tiempos de cuarentena se puede
 
 ## MVP - User stories
 
-- [ ] **User story:** Como jugador quiero que haya un botón para decidir cuando inicia el juego
-- [ ] **User story:** Como jugador quiero ver un tablero para saber por donde moverme
-- [ ] **User story:** Como jugador quiero llegar a casa para ganar el juego
-- [ ] **User story:** Como jugador quiero poder coger rollos de papel de váter para conseguir vidas
-- [ ] **User story:** Como jugador necesito que haya virus que restan vidas para añadir emoción al juego
+- [x] **User story:** Como jugador quiero que haya un botón para decidir cuando inicia el juego
+- [x] **User story:** Como jugador quiero ver un tablero para saber por donde moverme
+- [x] **User story:** Como jugador quiero llegar a casa para ganar el juego
+- [x] **User story:** Como jugador quiero poder coger rollos de papel de váter para conseguir vidas
+- [x] **User story:** Como jugador necesito que haya virus que restan vidas para añadir emoción al juego
 
 
 ## Backlog
