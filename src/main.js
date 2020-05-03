@@ -9,7 +9,7 @@ let homeImg;
 let virusImg;
 let paperImg;
 let playerImg;
-
+let thermImg;
 
 //CHANGE HTML CONTENT
 const buildDom = (html) => {
@@ -17,6 +17,10 @@ const buildDom = (html) => {
     main.innerHTML = html;
   };
 
+
+function refreshPage(){
+    window.location.reload();
+} 
 
 const startScreen = () => {
     buildDom(`
@@ -64,7 +68,7 @@ const winScreen = () => {
             <div class="card-start">
                 <img src="/assets/player.svg" alt="Covid Odyssey" class="img-intro">
                 <h1>You win!!</h1>
-                <button onclick="gameBoardScreen();" class="start-game-button">Play again</button>
+                <button onclick="window.location.reload();" class="start-game-button">Play again</button>
             </div>
         </div>
         `);
@@ -75,7 +79,7 @@ const gameOverScreen = () => {
         <div id="end-game" class="end-game">
             <div class="card-start">
             <img src="/assets/GameOver.png" alt="Covid Odyssey" class="game-over">
-            <button onclick="gameBoardScreen();" class="start-game-button">Play again</button>
+            <button onclick="refreshPage();" class="start-game-button">Play again</button>
             </div>
         </div>
         `);
@@ -86,22 +90,37 @@ const instructions = () => {
     <div class="start-game">
         <div id="instructions-card">
             <button onclick="startScreen()" class="close"><img src="/assets/close.svg" alt="Close Button"></button>
-            <img src="/assets/Covid-Odyssey.png" alt="Covid Odyssey" class="logo-instructions">
+            <div class="intro-instructions">
+                <img src="/assets/Covid-Odyssey.png" alt="Covid Odyssey" class="logo-instructions">
+                <p>😷😷Te toca hacer la compra semanal. Llegar a casa en tiempos de cuarentena se puede convertir en toda una odisea... Por el camino tienes que esquivar el virus y recoger rollos de papel de váter.</p> 
+            </div>
             <div id="col-instructions">
                 <div class="obj-group">
-                    <img src="/assets/covid.svg" alt="Covid Odyssey" class="logo-instructions">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>
-                    <img src="/assets/paper.svg" alt="Covid Odyssey" class="logo-instructions">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>
-            
-                </div>
-                <div class="obj-group">
-                    <img src="/assets/home.png" alt="Covid Odyssey" class="logo-instructions">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>
+                    <div class="obj-desc">
+                        <img src="/assets/covid.svg" alt="Covid Odyssey" class="logo-instructions">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>
+                    </div>
+                    <div class="obj-desc">
+                        <img src="/assets/paper.svg" alt="Covid Odyssey" class="logo-instructions">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>    
+                    </div>
                     
                 </div>
+                <div class="obj-group">
+                    <div class="obj-desc">
+                        <img src="/assets/home.svg" alt="Covid Odyssey" class="logo-instructions">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>    
+                    </div>
+                    <div class="obj-desc">
+                        <img src="/assets/termometro.svg" alt="Covid Odyssey" class="logo-instructions">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>
+                    </div>
+                </div>
             </div>
-            <button id="start-game-button" class="start-game-button">Start game</button>            
+            <div class="intro-instructions">
+                <button onclick="startScreen()" class="start-game-button">Start game</button>  
+            </div>
+                      
         </div>
     </div>
         `);
@@ -113,7 +132,7 @@ function createCanvas() {
 
 
     //CREATE OBJECTS
-    home = new Home(canvas.width - 100, canvas.height - 100);
+    home = new Home(canvas.width - 50, canvas.height - 75);
     protagonist = new Protagonist(0, 350);
 }
 
@@ -126,7 +145,7 @@ function updateCanvas(){
 //LOAD ALL THE IMAGES
 function loadImages(){
     homeImg = new Image();
-    homeImg.src = "../assets/home.png";
+    homeImg.src = "../assets/home.svg";
 
     playerImg = new Image();
     playerImg.src = "../assets/player.svg";
@@ -136,6 +155,9 @@ function loadImages(){
 
     paperImg = new Image();
     paperImg.src = "../assets/paper.svg";
+
+    thermImg = new Image();
+    thermImg.src = "../assets/termometro.svg";
 }
 
 //START THE GAME

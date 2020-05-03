@@ -157,15 +157,27 @@ class Protagonist {
         scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] = 0;
       }
 
+      //collision thermometer
+      if(scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] == 5){
+        ++self.lives;
+
+        scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] = 0;
+      }
+
       //collision home
       if(scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] == 4){
         setTimeout(winScreen, 500);
       }
 
       //collision virus  
+      
       if(scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] == 3 && self.virusActive == true){
         if(self.lives > 0){
           --self.lives;
+          self.virusActive = false;
+          setTimeout(function(){
+            self.virusActive = true;
+          }, 1000);
         } 
         else if(self.lives == 0) {
           setTimeout(gameOverScreen, 500);

@@ -6,6 +6,10 @@ canvas {
     box-shadow: 0px 0px 39px 0px rgba(69, 5, 142, 0.2);
 }
 
+button:focus{
+    outline: none;
+}
+
 * {
     font-family: 'Poppins', sans-serif;
 }
@@ -161,22 +165,44 @@ h1 {
     width: 40px;
 }
 
+.intro-instructions{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-instructions p {
+    color: white;
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
 #col-instructions {
     display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
 }
 
 #col-instructions div {
-    width: 50%;
+    width: 90%;
 }
 
 #instructions-card {
     width: 80vw;
     height: 70vh;
+    max-width: 900px;
     overflow: scroll;
 }
 
 .logo-instructions{
     width: 200px;
+}
+
+.obj-desc {
+    display: flex;
 }
 
 .game-over{
@@ -188,4 +214,12 @@ h1 {
 .obj-group img {
     width: 50px;
     padding-right: 30px;
+}
+
+.obj-group p {
+    color: white;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    padding-top: 15px;
 }
