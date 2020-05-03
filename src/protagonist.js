@@ -80,8 +80,8 @@ class Protagonist {
       //right collision
       if(self.speedX > 0) {
         if(
-          self.collision(self.x + widthBox + self.speedX, self.y + 1) || 
-          self.collision(self.x + widthBox + self.speedX, self.y + heightBox -1)){
+          self.collision(self.x + widthBox + self.speedX, self.y + 1) == true || 
+          self.collision(self.x + widthBox + self.speedX, self.y + heightBox -1) == true ){
             if(self.x != parseInt(self.x/widthBox) * widthBox){
               self.correctPosition("right");
               self.right = false;
@@ -194,11 +194,27 @@ class Protagonist {
     }
 
     moveRight() {
-      this.right = true;
+      let self = this;
+      if(
+        self.collision(self.x + widthBox + self.speedX, self.y + 1) == true || 
+        self.collision(self.x + widthBox + self.speedX, self.y + heightBox -1) == true ){
+          self.right = false;
+      } else {
+        this.right = true;
+      }
     }
 
     moveLeft() {
-      this.left = true;
+      let self = this;
+
+      if(
+        self.collision(self.x + self.speedX, self.y + 1) == true || 
+        self.collision(self.x + self.speedX, self.y + heightBox - 1) == true){
+          self.left = false;
+      } else {
+        self.left = true;
+      }
+
     }
 
     stopRight(){
