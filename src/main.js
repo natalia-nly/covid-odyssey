@@ -26,7 +26,7 @@ const startScreen = () => {
     buildDom(`
         <div class="start-game">
             <div class="card-start">
-            <img src="/assets/Covid-Odyssey.png" alt="Covid Odyssey" class="img-intro">
+            <img src="assets/Covid-Odyssey.png" alt="Covid Odyssey" class="img-intro">
                 <button onclick="gameBoardScreen();" class="start-game-button">Start game</button>
                 <button onclick="instructions();" class="button-instructions">Need help?</button>
             </div>
@@ -41,14 +41,14 @@ const gameBoardScreen = () => {
         <div id="game-board" class="game-board">
             <div class="info-game">
                 <div class="info-life info">
-                    <img src="/assets/heart.svg" alt="lives" value="lives">
+                    <img src="assets/heart.svg" alt="lives" value="lives">
                     <p id="number-lifes"></p>
                 </div>
                 <div>
-                <img src="/assets/Covid-Odyssey.png" alt="Covid Odyssey" class="logo-board">
+                <img src="assets/Covid-Odyssey.png" alt="Covid Odyssey" class="logo-board">
                 </div>
                 <div class="info-paper info">
-                    <img src="/assets/paper.svg" alt="Paper" value="paper">
+                    <img src="assets/paper.svg" alt="Paper" value="paper">
                     <p id="number-paper"></p>
                 </div>
             </div>
@@ -66,7 +66,7 @@ const winScreen = () => {
     buildDom(`
         <div id="end-game" class="end-game">
             <div class="card-start">
-                <img src="/assets/player.svg" alt="Covid Odyssey" class="img-intro">
+                <img src="assets/player.svg" alt="Covid Odyssey" class="img-intro">
                 <h1>You win!!</h1>
                 <button onclick="window.location.reload();" class="start-game-button">Play again</button>
             </div>
@@ -78,7 +78,7 @@ const gameOverScreen = () => {
     buildDom(`
         <div id="end-game" class="end-game">
             <div class="card-start">
-            <img src="/assets/GameOver.png" alt="Covid Odyssey" class="game-over">
+            <img src="assets/GameOver.png" alt="Covid Odyssey" class="game-over">
             <button onclick="refreshPage();" class="start-game-button">Play again</button>
             </div>
         </div>
@@ -89,30 +89,30 @@ const instructions = () => {
     buildDom(`
     <div class="start-game">
         <div id="instructions-card">
-            <button onclick="startScreen()" class="close"><img src="/assets/close.svg" alt="Close Button"></button>
+            <button onclick="startScreen()" class="close"><img src="assets/close.svg" alt="Close Button"></button>
             <div class="intro-instructions">
-                <img src="/assets/Covid-Odyssey.png" alt="Covid Odyssey" class="logo-instructions">
+                <img src="assets/Covid-Odyssey.png" alt="Covid Odyssey" class="logo-instructions">
                 <p>😷😷Te toca hacer la compra semanal. Llegar a casa en tiempos de cuarentena se puede convertir en toda una odisea... Por el camino tienes que esquivar el virus y recoger rollos de papel de váter.</p> 
             </div>
             <div id="col-instructions">
                 <div class="obj-group">
                     <div class="obj-desc">
-                        <img src="/assets/covid.svg" alt="Covid Odyssey" class="logo-instructions">
+                        <img src="assets/covid.svg" alt="Covid Odyssey" class="logo-instructions">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>
                     </div>
                     <div class="obj-desc">
-                        <img src="/assets/paper.svg" alt="Covid Odyssey" class="logo-instructions">
+                        <img src="assets/paper.svg" alt="Covid Odyssey" class="logo-instructions">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>    
                     </div>
                     
                 </div>
                 <div class="obj-group">
                     <div class="obj-desc">
-                        <img src="/assets/home.svg" alt="Covid Odyssey" class="logo-instructions">
+                        <img src="assets/home.svg" alt="Covid Odyssey" class="logo-instructions">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>    
                     </div>
                     <div class="obj-desc">
-                        <img src="/assets/termometro.svg" alt="Covid Odyssey" class="logo-instructions">
+                        <img src="assets/termometro.svg" alt="Covid Odyssey" class="logo-instructions">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ratione tempora quidem odio eveniet</p>
                     </div>
                 </div>
@@ -145,19 +145,19 @@ function updateCanvas(){
 //LOAD ALL THE IMAGES
 function loadImages(){
     homeImg = new Image();
-    homeImg.src = "../assets/home.svg";
+    homeImg.src = "assets/home.svg";
 
     playerImg = new Image();
-    playerImg.src = "../assets/player.svg";
+    playerImg.src = "assets/player.svg";
 
     virusImg = new Image();
-    virusImg.src = "../assets/covid.svg";
+    virusImg.src = "assets/covid.svg";
 
     paperImg = new Image();
-    paperImg.src = "../assets/paper.svg";
+    paperImg.src = "assets/paper.svg";
 
     thermImg = new Image();
-    thermImg.src = "../assets/termometro.svg";
+    thermImg.src = "assets/termometro.svg";
 }
 
 //START THE GAME
