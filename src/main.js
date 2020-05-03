@@ -11,6 +11,35 @@ let paperImg;
 let playerImg;
 let thermImg;
 
+//SOUND
+
+let paperSound = new Howl({
+    src: ['assets/paper.wav'],
+    loop: false
+});
+
+let virusSound = new Howl({
+    src: ['assets/virus.wav'],
+    loop: false
+});
+
+let thermometerSound = new Howl({
+    src: ['assets/thermometer.wav'],
+    loop: false
+});
+
+let winSound = new Howl({
+    src: ['assets/win.wav'],
+    loop: false
+});
+
+let gameOverSound = new Howl({
+    src: ['assets/gameover.wav'],
+    loop: false
+});
+
+
+
 //CHANGE HTML CONTENT
 const buildDom = (html) => {
     const main = document.querySelector("#main");
@@ -62,6 +91,7 @@ const gameBoardScreen = () => {
 
 };
 
+
 const winScreen = () => {
     buildDom(`
         <div class="start-game">
@@ -69,7 +99,7 @@ const winScreen = () => {
                 <img src="assets/player.svg" alt="Covid Odyssey" class="img-win">
                 <img src="assets/YouWin.png" alt="Covid Odyssey" class="game-over">
 
-                <button href="index.html" class="start-game-button">Play again</button>
+                <button onclick="gameBoardScreen()" class="start-game-button">Play again</button>
             </div>
         </div>
         `);
@@ -80,7 +110,7 @@ const gameOverScreen = () => {
         <div id="end-game" class="end-game">
             <div class="card-start">
             <img src="assets/GameOver.png" alt="Covid Odyssey" class="game-over">
-            <button href="index.html" class="start-game-button">Play again</button>
+            <button onclick="gameBoardScreen()" class="start-game-button">Play again</button>
             </div>
         </div>
         `);

@@ -16,6 +16,7 @@ class Protagonist {
       this.right = false;
       this.left = false;
       this.virusActive = true;
+      this.win = false;
       this.infoLives = document.getElementById('number-lifes');
       this.infoPaper = document.getElementById('number-paper');
     }
@@ -149,9 +150,11 @@ class Protagonist {
       if(scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] == 2){
         if(self.paper < 2){
           ++self.paper;
+          paperSound.play();
         } else if(self.paper === 2){
           self.paper = 0;
           ++self.lives;
+          paperSound.play();
         }
   
         scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] = 0;
@@ -160,12 +163,15 @@ class Protagonist {
       //collision thermometer
       if(scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] == 5){
         ++self.lives;
+        thermometerSound.play();
 
         scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] = 0;
       }
 
       //collision home
-      if(scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] == 4){
+      if(scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] == 4 && self.win == false){
+        self.win = true;
+        winSound.play();
         setTimeout(winScreen, 500);
       }
 
@@ -175,11 +181,13 @@ class Protagonist {
         if(self.lives > 0){
           --self.lives;
           self.virusActive = false;
+          virusSound.play();
           setTimeout(function(){
             self.virusActive = true;
           }, 1000);
         } 
         else if(self.lives == 0) {
+          gameOverSound.play();
           setTimeout(gameOverScreen, 500);
         }
       }
