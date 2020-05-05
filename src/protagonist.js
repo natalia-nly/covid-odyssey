@@ -7,7 +7,7 @@ class Protagonist {
       this.speedY = 0;
       this.gravity = 0.5;
       this.friction = 0.3;
-      this.jump = 12;
+      this.jump = 10;
       this.speed = 3;
       this.maxSpeed = 2;
       this.ground = true;
@@ -178,7 +178,7 @@ class Protagonist {
       //collision virus  
       
       if(scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] == 3 && self.virusActive == true){
-        if(self.lives > 0){
+        if(self.lives > 1){
           --self.lives;
           self.virusActive = false;
           virusSound.play();
@@ -186,7 +186,7 @@ class Protagonist {
             self.virusActive = true;
           }, 1000);
         } 
-        else if(self.lives == 0) {
+        else if(self.lives == 1) {
           gameOverSound.play();
           setTimeout(gameOverScreen, 500);
         }

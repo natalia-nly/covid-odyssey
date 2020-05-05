@@ -68,6 +68,29 @@ h1 {
     font-weight: 600;
 }
 
+.mobile-instructions {
+    color: #36d39a;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 20px;
+    display: none;
+}
+
+@media (max-width: 810px){
+    .mobile-instructions{
+        display:block;
+        text-align: center;
+    }
+
+    .start-game-button {
+        display: none;
+    }
+
+    .button-instructions {
+        display: none;
+    }
+}
+
 .start-game-button{
     background-color: #36d39a;
     color: white;

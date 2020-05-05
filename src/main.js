@@ -57,6 +57,7 @@ const startScreen = () => {
         <div class="start-game">
             <div class="card-start">
             <img src="assets/Covid-Odyssey.png" alt="Covid Odyssey" class="img-intro">
+            <p class="mobile-instructions">Oops! This game is only available for computer</p>
                 <button onclick="gameBoardScreen();" class="start-game-button">Start game</button>
                 <button onclick="instructions();" class="button-instructions">Need help?</button>
             </div>
@@ -124,7 +125,7 @@ const instructions = () => {
             <button onclick="startScreen()" class="close"><img src="assets/close.svg" alt="Close Button"></button>
             <div class="intro-instructions">
                 <img src="assets/Covid-Odyssey.png" alt="Covid Odyssey" class="logo-instructions">
-                <p>😷😷<br>You have to go to the supermarket. During covid quarantine it can be an odyssey... In your way home you should avoid virus and collect as much WC paper as you can.</p> 
+                <p>😷😷<br>You have to go to the supermarket. During covid quarantine it can be an odyssey... In your way home you should avoid virus and collect as many paper toilet rolls as you can.</p> 
             </div>
             <div id="col-instructions">
                 <div class="obj-group">
@@ -134,7 +135,7 @@ const instructions = () => {
                     </div>
                     <div class="obj-desc">
                         <img src="assets/paper.svg" alt="Covid Odyssey" class="logo-instructions">
-                        <p>🧻 Try to collect them! Every 3 WC papers, you will have an extra life.</p>    
+                        <p>🧻 Try to collect them! Every toilet paper roll, you will have an extra life.</p>    
                     </div>
                     
                 </div>
@@ -150,7 +151,7 @@ const instructions = () => {
                 </div>
             </div>
             <div class="intro-instructions">
-                <button onclick="startScreen()" class="start-game-button">Start game</button>  
+                <button onclick="startScreen()" class="start-game-button">Let's go!</button>  
             </div>
                       
         </div>
