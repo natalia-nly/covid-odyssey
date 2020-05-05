@@ -94,12 +94,12 @@ const winScreen = () => {
             <div class="card-start">
                 <img src="assets/player.svg" alt="Covid Odyssey" class="img-win">
                 <img src="assets/YouWin.png" alt="Covid Odyssey" class="game-over">
-
                 <button id="play-again" class="start-game-button">Play again</button>
             </div>
         </div>
         `);
 
+    scenario = JSON.parse(JSON.stringify(resetScenario));
     document.getElementById("play-again").onclick = gameBoardScreen;
 };
 
@@ -108,10 +108,12 @@ const gameOverScreen = () => {
         <div id="end-game" class="end-game">
             <div class="card-start">
             <img src="assets/GameOver.png" alt="Covid Odyssey" class="game-over">
-            <button onclick="gameBoardScreen()" class="start-game-button">Play again</button>
+            <button id="play-again2" class="start-game-button">Play again</button>
             </div>
         </div>
         `);
+    scenario = JSON.parse(JSON.stringify(resetScenario));
+    document.getElementById("play-again2").onclick = gameBoardScreen;
 };
 
 const instructions = () => {

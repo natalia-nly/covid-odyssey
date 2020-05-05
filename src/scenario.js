@@ -1,5 +1,3 @@
-
-
 let widthBox = 25;
 let heightBox = 25;
 
@@ -32,9 +30,11 @@ let scenario = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
 
+let resetScenario = JSON.parse(JSON.stringify(scenario));
+
+
 
 function drawScenario(){
-  let color;
   for(let y = 0; y < scenario.length; y++){
     for(let x = 0; x < scenario[0].length; x++){
      
