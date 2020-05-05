@@ -96,7 +96,7 @@ const winScreen = () => {
         <div class="start-game">
             <div class="card-start">
                 <img src="assets/player.svg" alt="Covid Odyssey" class="img-win">
-                <img src="assets/YouWin.png" alt="Covid Odyssey" class="game-over">
+                <p class="nebula">You win!</p>
                 <button id="play-again" class="start-game-button">Play again</button>
             </div>
         </div>
@@ -110,7 +110,7 @@ const gameOverScreen = () => {
     buildDom(`
         <div id="end-game" class="end-game">
             <div class="card-start">
-            <img src="assets/GameOver.png" alt="Covid Odyssey" class="game-over">
+            <p class="nebula">Game over!</p>
             <button id="play-again2" class="start-game-button">Play again</button>
             </div>
         </div>

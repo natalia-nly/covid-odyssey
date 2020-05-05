@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Nebula;
+    src: url(assets/Nebula.otf);
+  }
+
 canvas {
     background-image: url(../assets/background.png);
     background-repeat: no-repeat;
@@ -30,7 +35,6 @@ body {
 
 .img-win{
     width: 90px;
-    padding-bottom: 30px;
 }
 
 .end-game {
@@ -89,6 +93,13 @@ h1 {
     .button-instructions {
         display: none;
     }
+}
+
+.nebula {
+    font-family: Nebula;
+    font-size: 90px;
+    color: #36d39a;
+    margin: 30px;
 }
 
 .start-game-button{
