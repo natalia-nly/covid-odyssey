@@ -1,3 +1,9 @@
+let canvas;
+let ctx;
+let FPS = 60;
+let home;
+let protagonist;
+
 //IMAGES
 let homeImg;
 let virusImg;
@@ -54,11 +60,8 @@ const startScreen = () => {
         </div>
         `);
 
-        const startButton = document.getElementById("start-button");
-        startButton.addEventListener("click", gameBoardScreen);
-
-        const helpButton = document.getElementById("help-button");
-        helpButton.addEventListener("click", instructions);
+        document.getElementById("start-button").onclick = gameBoardScreen;
+        document.getElementById("help-button").onclick = instructions;
 
 };
 
@@ -158,11 +161,6 @@ const instructions = () => {
 };
 
 function newGame(){
-    let canvas;
-    let ctx;
-    let FPS = 60;
-    let home;
-    let protagonist;
 
     createCanvas();
     loadImages();

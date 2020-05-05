@@ -61,7 +61,7 @@ class Protagonist {
 
     //ground collision
     if(self.speedY > 0){
-      if(self.collision(self.x + 1, self.y + heightBox) == true || self.collision(self.x + widthBox -1, self.y + heightBox) == true){
+      if(self.collision(self.x + 1, self.y + heightBox) || self.collision(self.x + widthBox -1, self.y + heightBox)){
         self.ground = true;
         self.speedY = 0;
         self.correctPosition("down");
@@ -72,7 +72,7 @@ class Protagonist {
 
     //top collision
     if(self.speedY < 0){
-      if(self.collision(self.x + 1, self.y) == true || self.collision(self.x + widthBox -1, self.y) == true){
+      if(self.collision(self.x + 1, self.y) || self.collision(self.x + widthBox -1, self.y)){
         self.speedY = 0;
         self.correctPosition("up");
       }
@@ -81,9 +81,9 @@ class Protagonist {
     //right collision
     if(self.speedX > 0) {
       if(
-        self.collision(self.x + widthBox + self.speedX, self.y + 1) == true || 
-        self.collision(self.x + widthBox + self.speedX, self.y + heightBox -1) == true ){
-          if(self.x != parseInt(self.x/widthBox) * widthBox){
+        self.collision(self.x + widthBox + self.speedX, self.y + 1) || 
+        self.collision(self.x + widthBox + self.speedX, self.y + heightBox -1)){
+          if(self.x !== parseInt(self.x/widthBox) * widthBox){
             self.correctPosition("right");
             self.right = false;
           }
@@ -98,7 +98,7 @@ class Protagonist {
       if(
         self.collision(self.x + self.speedX, self.y + 1) || 
         self.collision(self.x + self.speedX, self.y + heightBox - 1)){
-          if(self.x != parseInt(self.x/widthBox) * widthBox){
+          if(self.x !== parseInt(self.x/widthBox) * widthBox){
             self.correctPosition("left");
             self.left = false;
           }
@@ -109,10 +109,8 @@ class Protagonist {
     }
 
     //right
-    if (self.right == true && 
-      self.speedX <= self.maxSpeed){
-      self.speedX += self.speed;
-      
+    if (self.right == true && self.speedX <= self.maxSpeed){
+      self.speedX += self.speed;  
     }
 
     if(self.speedX > 0){
@@ -204,8 +202,8 @@ class Protagonist {
   moveRight() {
     let self = this;
     if(
-      self.collision(self.x + widthBox + self.speedX, self.y + 1) == true || 
-      self.collision(self.x + widthBox + self.speedX, self.y + heightBox -1) == true ){
+      self.collision(self.x + widthBox + self.speedX, self.y + 1) || 
+      self.collision(self.x + widthBox + self.speedX, self.y + heightBox -1)){
         self.right = false;
     } else {
       this.right = true;
@@ -216,8 +214,8 @@ class Protagonist {
     let self = this;
 
     if(
-      self.collision(self.x + self.speedX, self.y + 1) == true || 
-      self.collision(self.x + self.speedX, self.y + heightBox - 1) == true){
+      self.collision(self.x + self.speedX, self.y + 1) || 
+      self.collision(self.x + self.speedX, self.y + heightBox - 1)){
         self.left = false;
     } else {
       self.left = true;
@@ -236,11 +234,6 @@ class Protagonist {
   draw(){
     this.physics();
     ctx.drawImage(playerImg, this.x, this.y, widthBox, heightBox);
-
-    if (this.y >= canvas.height - 25){
-      this.ground = true;
-    }
-
   }
 
 }
