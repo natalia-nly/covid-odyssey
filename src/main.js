@@ -10,6 +10,7 @@ let virusImg;
 let paperImg;
 let playerImg;
 let thermImg;
+let tileImg;
 
 //SOUND
 
@@ -189,6 +190,9 @@ function loadImages(){
 
     thermImg = new Image();
     thermImg.src = "assets/termometro.svg";
+
+    tileImg = new Image();
+    tileImg.src = "assets/tile.png";
 }
 
 //START THE GAME

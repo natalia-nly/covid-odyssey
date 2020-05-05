@@ -57,8 +57,9 @@ function drawScenario(){
           break;
         //PLATFORM
         case 1:
-          ctx.fillStyle = brown;
-          ctx.fillRect(x*widthBox, y*heightBox, widthBox, heightBox);
+          // ctx.fillStyle = brown;
+          // ctx.fillRect(x*widthBox, y*heightBox, widthBox, heightBox);
+          ctx.drawImage(tileImg, x*widthBox, y*heightBox, widthBox, heightBox); 
           break;
         //PAPER
         case 2:
