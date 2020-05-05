@@ -1,9 +1,3 @@
-let canvas;
-let ctx;
-let FPS = 60;
-let home;
-let protagonist;
-
 //IMAGES
 let homeImg;
 let virusImg;
@@ -48,21 +42,24 @@ const buildDom = (html) => {
   };
 
 
-function refreshPage(){
-    window.location.reload();
-} 
-
 const startScreen = () => {
     buildDom(`
         <div class="start-game">
             <div class="card-start">
             <img src="assets/Covid-Odyssey.png" alt="Covid Odyssey" class="img-intro">
             <p class="mobile-instructions">Oops! This game is only available for computer</p>
-                <button onclick="gameBoardScreen();" class="start-game-button">Start game</button>
-                <button onclick="instructions();" class="button-instructions">Need help?</button>
+                <button id="start-button" class="start-game-button">Start game</button>
+                <button id="help-button" class="button-instructions">Need help?</button>
             </div>
         </div>
         `);
+
+        const startButton = document.getElementById("start-button");
+        startButton.addEventListener("click", gameBoardScreen);
+
+        const helpButton = document.getElementById("help-button");
+        helpButton.addEventListener("click", instructions);
+
 };
 
 
@@ -87,10 +84,7 @@ const gameBoardScreen = () => {
         </div>
         `);
 
-    createCanvas();
-    loadImages();
-    setInterval(startGame, 1000/FPS);
-
+    newGame();
 };
 
 
@@ -101,10 +95,12 @@ const winScreen = () => {
                 <img src="assets/player.svg" alt="Covid Odyssey" class="img-win">
                 <img src="assets/YouWin.png" alt="Covid Odyssey" class="game-over">
 
-                <button onclick="gameBoardScreen()" class="start-game-button">Play again</button>
+                <button id="play-again" class="start-game-button">Play again</button>
             </div>
         </div>
         `);
+
+    document.getElementById("play-again").onclick = gameBoardScreen;
 };
 
 const gameOverScreen = () => {
@@ -159,7 +155,20 @@ const instructions = () => {
         `);
 };
 
+function newGame(){
+    let canvas;
+    let ctx;
+    let FPS = 60;
+    let home;
+    let protagonist;
+
+    createCanvas();
+    loadImages();
+    setInterval(startGame, 1000/FPS);
+}
+
 function createCanvas() {
+
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
 
