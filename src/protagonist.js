@@ -169,6 +169,9 @@ class Protagonist {
     //collision home
     if(scenario[parseInt(self.y/heightBox)][parseInt(self.x/widthBox)] == 4 && self.win == false){
       self.win = true;
+      if(level < 3){
+        ++level;
+      }
       winSound.play();
       setTimeout(winScreen, 500);
     }
@@ -186,6 +189,7 @@ class Protagonist {
       } 
       else if(self.lives == 1) {
         gameOverSound.play();
+        self.virusActive = false;
         setTimeout(gameOverScreen, 500);
       }
     }

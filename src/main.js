@@ -3,6 +3,7 @@ let ctx;
 let FPS = 60;
 let home;
 let protagonist;
+let level = 1;
 
 //IMAGES
 let homeImg;
@@ -102,7 +103,16 @@ const winScreen = () => {
         </div>
         `);
 
-    scenario = JSON.parse(JSON.stringify(resetScenario));
+    switch(level){
+        case 2:
+            scenario = JSON.parse(JSON.stringify(resetLevel2));
+            break;
+        case 3:         
+            scenario = JSON.parse(JSON.stringify(resetLevel3));
+            break;
+            
+    }
+
     document.getElementById("play-again").onclick = gameBoardScreen;
 };
 
@@ -115,7 +125,19 @@ const gameOverScreen = () => {
             </div>
         </div>
         `);
-    scenario = JSON.parse(JSON.stringify(resetScenario));
+
+    switch(level){
+        case 1:
+            scenario = JSON.parse(JSON.stringify(resetLevel1));
+            break;
+        case 2:
+            scenario = JSON.parse(JSON.stringify(resetLevel2));
+            break;
+        case 3:
+            scenario = JSON.parse(JSON.stringify(resetLevel3));
+            break;
+    }
+
     document.getElementById("play-again2").onclick = gameBoardScreen;
 };
 
