@@ -5,6 +5,7 @@ let home;
 let protagonist;
 let level = 1;
 
+
 //IMAGES
 let homeImg;
 let virusImg;
@@ -73,14 +74,14 @@ const gameBoardScreen = () => {
         <div id="game-board" class="game-board">
             <div class="info-game">
                 <div class="info-life info">
-                    <img src="assets/heart.svg" alt="lives" value="lives">
+                    <img src="assets/heart.png" alt="lives" value="lives">
                     <p id="number-lifes"></p>
                 </div>
                 <div>
                 <img src="assets/Covid-Odyssey.png" alt="Covid Odyssey" class="logo-board">
                 </div>
                 <div class="info-paper info">
-                    <img src="assets/paper.svg" alt="Paper" value="paper">
+                    <img src="assets/paper.png" alt="Paper" value="paper">
                     <p id="number-paper"></p>
                 </div>
             </div>
@@ -96,7 +97,7 @@ const winScreen = () => {
     buildDom(`
         <div class="start-game">
             <div class="card-start">
-                <img src="assets/player.svg" alt="Covid Odyssey" class="img-win">
+                <img src="assets/player.png" alt="Covid Odyssey" class="img-win">
                 <p class="nebula">You win!</p>
                 <button id="play-again" class="start-game-button">Play again</button>
             </div>
@@ -145,7 +146,7 @@ const instructions = () => {
     buildDom(`
     <div class="start-game">
         <div id="instructions-card">
-            <button onclick="startScreen()" class="close"><img src="assets/close.svg" alt="Close Button"></button>
+            <button onclick="startScreen()" class="close"><img src="assets/close.png" alt="Close Button"></button>
             <div class="intro-instructions">
                 <img src="assets/Covid-Odyssey.png" alt="Covid Odyssey" class="logo-instructions">
                 <p>😷😷<br>You have to go to the supermarket. During covid quarantine it can be an odyssey... In your way home you should avoid virus and collect as many paper toilet rolls as you can.</p> 
@@ -153,22 +154,22 @@ const instructions = () => {
             <div id="col-instructions">
                 <div class="obj-group">
                     <div class="obj-desc">
-                        <img src="assets/covid.svg" alt="Covid Odyssey" class="logo-instructions">
+                        <img src="assets/covid.png" alt="Covid Odyssey" class="logo-instructions">
                         <p>💖You start the game with 3 lives. A virus will remove one life! 🦠</p>
                     </div>
                     <div class="obj-desc">
-                        <img src="assets/paper.svg" alt="Covid Odyssey" class="logo-instructions">
+                        <img src="assets/paper.png" alt="Covid Odyssey" class="logo-instructions">
                         <p>🧻 Try to collect them! Every toilet paper roll, you will have an extra life.</p>    
                     </div>
                     
                 </div>
                 <div class="obj-group">
                     <div class="obj-desc">
-                        <img src="assets/home.svg" alt="Covid Odyssey" class="logo-instructions">
+                        <img src="assets/home.png" alt="Covid Odyssey" class="logo-instructions">
                         <p>🏠That's your goal. You have to arrive home to win!</p>    
                     </div>
                     <div class="obj-desc">
-                        <img src="assets/termometro.svg" alt="Covid Odyssey" class="logo-instructions">
+                        <img src="assets/termometro.png" alt="Covid Odyssey" class="logo-instructions">
                         <p>🌡️ Extra bonus: since you have no fever you win an extra life!</p>
                     </div>
                 </div>
@@ -209,19 +210,19 @@ function updateCanvas(){
 //LOAD ALL THE IMAGES
 function loadImages(){
     homeImg = new Image();
-    homeImg.src = "assets/home.svg";
+    homeImg.src = "assets/home.png";
 
     playerImg = new Image();
-    playerImg.src = "assets/player.svg";
+    playerImg.src = "assets/player.png";
 
     virusImg = new Image();
-    virusImg.src = "assets/covid.svg";
+    virusImg.src = "assets/covid.png";
 
     paperImg = new Image();
-    paperImg.src = "assets/paper.svg";
+    paperImg.src = "assets/paper.png";
 
     thermImg = new Image();
-    thermImg.src = "assets/termometro.svg";
+    thermImg.src = "assets/termometro.png";
 
     tileImg = new Image();
     tileImg.src = "assets/tile.png";

@@ -22,13 +22,16 @@ Te toca hacer la compra semanal. Llegar a casa en tiempos de cuarentena se puede
 
 
 ## Backlog
-- [ ] Niveles
-- [ ] Añadir efectos de sonido 
-- [ ] Añadir animaciones
+- [x] Niveles
+- [x] Añadir efectos de sonido 
 
 
 ## Links 
+### Play
+https://natalia-nly.github.io/covid-odyssey/
+
 ### Kanban
 https://trello.com/b/fNz5J5VB
 
 ### Slides
+https://docs.google.com/presentation/d/1qdB5i6cuxr_lwk3qiUS0DVavRJRc2tFxqoHyfrQrtIA/edit?usp=sharing
