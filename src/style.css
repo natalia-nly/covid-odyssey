@@ -243,6 +243,7 @@ h1 {
 
 .obj-desc {
     display: flex;
+    align-items: flex-start;
     padding-bottom: 20px;
 }
 
